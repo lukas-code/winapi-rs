@@ -400,7 +400,7 @@ STRUCT!{struct BITMAP {
 pub type PBITMAP = *mut BITMAP;
 pub type NPBITMAP = *mut BITMAP;
 pub type LPBITMAP = *mut BITMAP;
-STRUCT!{#[debug] struct RGBTRIPLE {
+STRUCT!{struct RGBTRIPLE {
     rgbtBlue: BYTE,
     rgbtGreen: BYTE,
     rgbtRed: BYTE,
@@ -408,7 +408,7 @@ STRUCT!{#[debug] struct RGBTRIPLE {
 pub type PRGBTRIPLE = *mut RGBTRIPLE;
 pub type NPRGBTRIPLE = *mut RGBTRIPLE;
 pub type LPRGBTRIPLE = *mut RGBTRIPLE;
-STRUCT!{#[debug] struct RGBQUAD {
+STRUCT!{struct RGBQUAD {
     rgbBlue: BYTE,
     rgbGreen: BYTE,
     rgbRed: BYTE,
@@ -461,13 +461,13 @@ pub type FXPT16DOT16 = c_long;
 pub type LPFXPT16DOT16 = *mut c_long;
 pub type FXPT2DOT30 = c_long;
 pub type LPFXPT2DOT30 = *mut c_long;
-STRUCT!{#[debug] struct CIEXYZ {
+STRUCT!{struct CIEXYZ {
     ciexyzX: FXPT2DOT30,
     ciexyzY: FXPT2DOT30,
     ciexyzZ: FXPT2DOT30,
 }}
 pub type LPCIEXYZ = *mut CIEXYZ;
-STRUCT!{#[debug] struct CIEXYZTRIPLE {
+STRUCT!{struct CIEXYZTRIPLE {
     ciexyzRed: CIEXYZ,
     ciexyzGreen: CIEXYZ,
     ciexyzBlue: CIEXYZ,
@@ -499,7 +499,7 @@ STRUCT!{struct LOGCOLORSPACEW {
     lcsFilename: [WCHAR; MAX_PATH],
 }}
 pub type LPLOGCOLORSPACEW = *mut LOGCOLORSPACEW;
-STRUCT!{#[debug] struct BITMAPCOREHEADER {
+STRUCT!{struct BITMAPCOREHEADER {
     bcSize: DWORD,
     bcWidth: WORD,
     bcHeight: WORD,
@@ -508,7 +508,7 @@ STRUCT!{#[debug] struct BITMAPCOREHEADER {
 }}
 pub type LPBITMAPCOREHEADER = *mut BITMAPCOREHEADER;
 pub type PBITMAPCOREHEADER = *mut BITMAPCOREHEADER;
-STRUCT!{#[debug] struct BITMAPINFOHEADER {
+STRUCT!{struct BITMAPINFOHEADER {
     biSize: DWORD,
     biWidth: LONG,
     biHeight: LONG,
@@ -523,7 +523,7 @@ STRUCT!{#[debug] struct BITMAPINFOHEADER {
 }}
 pub type LPBITMAPINFOHEADER = *mut BITMAPINFOHEADER;
 pub type PBITMAPINFOHEADER = *mut BITMAPINFOHEADER;
-STRUCT!{#[debug] struct BITMAPV4HEADER {
+STRUCT!{struct BITMAPV4HEADER {
     bV4Size: DWORD,
     bV4Width: LONG,
     bV4Height: LONG,
@@ -547,7 +547,7 @@ STRUCT!{#[debug] struct BITMAPV4HEADER {
 }}
 pub type LPBITMAPV4HEADER = *mut BITMAPV4HEADER;
 pub type PBITMAPV4HEADER = *mut BITMAPV4HEADER;
-STRUCT!{#[debug] struct BITMAPV5HEADER {
+STRUCT!{struct BITMAPV5HEADER {
     bV5Size: DWORD,
     bV5Width: LONG,
     bV5Height: LONG,
@@ -583,19 +583,19 @@ pub const BI_RLE4: DWORD = 2;
 pub const BI_BITFIELDS: DWORD = 3;
 pub const BI_JPEG: DWORD = 4;
 pub const BI_PNG: DWORD = 5;
-STRUCT!{#[debug] struct BITMAPINFO {
+STRUCT!{struct BITMAPINFO {
     bmiHeader: BITMAPINFOHEADER,
     bmiColors: [RGBQUAD; 1],
 }}
 pub type LPBITMAPINFO = *mut BITMAPINFO;
 pub type PBITMAPINFO = *mut BITMAPINFO;
-STRUCT!{#[debug] struct BITMAPCOREINFO {
+STRUCT!{struct BITMAPCOREINFO {
     bmciHeader: BITMAPCOREHEADER,
     bmciColors: [RGBTRIPLE; 1],
 }}
 pub type LPBITMAPCOREINFO = *mut BITMAPCOREINFO;
 pub type PBITMAPCOREINFO = *mut BITMAPCOREINFO;
-STRUCT!{#[debug] #[repr(packed)] struct BITMAPFILEHEADER {
+STRUCT!{#[repr(packed)] struct BITMAPFILEHEADER {
     bfType: WORD,
     bfSize: DWORD,
     bfReserved1: WORD,
@@ -608,13 +608,13 @@ pub type PBITMAPFILEHEADER = *mut BITMAPFILEHEADER;
 pub fn MAKEPOINTS(l: DWORD) -> POINTS {
     unsafe { ::core::mem::transmute::<DWORD, POINTS>(l) }
 }
-STRUCT!{#[debug] struct FONTSIGNATURE {
+STRUCT!{struct FONTSIGNATURE {
     fsUsb: [DWORD; 4],
     fsCsb: [DWORD; 2],
 }}
 pub type LPFONTSIGNATURE = *mut FONTSIGNATURE;
 pub type PFONTSIGNATURE = *mut FONTSIGNATURE;
-STRUCT!{#[debug] struct CHARSETINFO {
+STRUCT!{struct CHARSETINFO {
     ciCharset: UINT,
     ciACP: UINT,
     fs: FONTSIGNATURE,
@@ -626,7 +626,7 @@ pub const TCI_SRCCHARSET: c_int = 1;
 pub const TCI_SRCCODEPAGE: c_int = 2;
 pub const TCI_SRCFONTSIG: c_int = 3;
 pub const TCI_SRCLOCALE: c_int = 0x1000;
-STRUCT!{#[debug] struct LOCALESIGNATURE {
+STRUCT!{struct LOCALESIGNATURE {
     lsUsb: [DWORD; 4],
     lsCsbDefault: [DWORD; 2],
     lsCsbSupported: [DWORD; 2],

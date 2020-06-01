@@ -94,7 +94,7 @@ DECLARE_HANDLE!{HTASK, HTASK__}
 DECLARE_HANDLE!{HWINSTA, HWINSTA__}
 DECLARE_HANDLE!{HKL, HKL__}
 pub type HFILE = c_int;
-STRUCT!{#[debug] struct FILETIME {
+STRUCT!{struct FILETIME {
     dwLowDateTime: DWORD,
     dwHighDateTime: DWORD,
 }}
